@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Learn CSS Layout</title>
+		<style>
+			body {
+				margin: 0;
+				background-color: blueviolet;
+				text-align: center;
+			}
+			section {
+				border-top: solid;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+			div {
+				max-width: 500px;
+				height: 100px;
+				border: yellow solid;
+			}
+			.header {
+				padding: 1.5rem;
+			}
+			.header__title {
+				margin-top: 0;
+			}
+			.header__signature {
+				font-size: 0.8rem;
+			}
+			.header__date {
+				font-style: italic;
+			}
+			.nav__list {
+				display: inline-block;
+				text-align: left;
+				margin: 0;
+			}
+			.nav__listItem a {
+				text-decoration: none;
+			}
+			.nav__listItem a:visited {
+				color: inherit;
+			}
+			.nav__listItem a:hover {
+				color: white;
+			}
+			.ex1__block {
+				margin: 20px auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.ex1__block--hide1 {
+				display: none;
+			}
+			.ex1__block--hide2 {
+				visibility: hidden;
+			}
+			.ex2__list {
+				padding: 0;
+			}
+			.ex2__listItem {
+				list-style-type: none;
+			}
+			.ex2__listItem--inline {
+				display: inline;
+			}
+			.ex3__block {
+				margin: 20px auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.ex3__block--fancy {
+				align-items: center;
+				padding: 50px;
+				border: yellow solid 10px;
+			}
+			.ex3__block--border-box {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.ex4__block {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.ex4__block--unflex {
+				display: block;
+			}
+			.ex4__block--margined {
+				margin: 20px auto;
+			}
+			.ex4__block--relative1 {
+				position: relative;
+				top: 30px;
+				left: 30px;
+				background-color: hotpink;
+			}
+			.ex4__block--relative2 {
+				position: relative;
+				background-color: hotpink;
+			}
+			.ex4__block--fixed {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				background-color: paleturquoise;
+			}
+			.ex4__block--absolute {
+				position: absolute;
+				height: 50px;
+				right: 0;
+				background-color: palegreen;
+			}
+			.ex5__float {
+				float: right;
+				background-color: red;
+				width: 70px;
+				height: 70px;
+				margin: 0 0 1rem 1rem;
+				border: yellow solid;
+				box-sizing: border-box;
+			}
+			.ex5__text {
+				text-align: left;
+			}
+			.ex5__text--afterFLoat {
+				clear: right;
+			}
+			.ex5__block {
+				height: unset;
+				clear: both;
+				margin: 20px auto;
+			}
+			.ex5__block--overflow {
+				overflow: auto;
+			}
+			.ex6 {
+				padding-bottom: 2rem;
+			}
+			.ex6__nav {
+				border: red solid;
+				box-sizing: border-box;
+				text-align: left;
+				max-width: 500px;
+			}
+			.ex6__block {
+				box-sizing: border-box;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			@media (min-width: 600px) {
+				.ex6__nav {
+					float: left;
+					width: 25%;
+				}
+				.ex6__block {
+					margin-left: 25%;
+				}
+			}
+			@media (max-width: 600px) {
+				.ex6__nav li {
+					display: inline;
+				}
+			}
+			.ex7 {
+				text-align: left;
+			}
+			.ex7__title {
+				text-align: center;
+			}
+			.ex7__block {
+				width: 100px;
+				margin: 1rem;
+				display: inline-block;
+				box-sizing: border-box;
+			}
+			.ex8__block {
+				margin: 20px auto;
+				height: unset;
+				padding: 1rem;
+			}
+			.ex8__block--column {
+				margin: 20px auto;
+				height: unset;
+				padding: 1rem;
+				-webkit-column-count: 3;
+				-webkit-column-gap: 1rem;
+				-moz-column-count: 3;
+				-moz-column-gap: 1rem;
+				column-count: 3;
+				column-gap: 1rem;
+			}
+			.ex8__text {
+				text-align: left;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="header__title">Learn CSS Layout</h1>
+			<p>
+				By following this course:
+				<a href="https://learnlayout.com/" target="_blank"
+					>https://learnlayout.com/</a
+				>
+			</p>
+			<p class="header__signature">
+				Maxime Kerfourn - <span class="header__date">08/09/2021</span>
+			</p>
+			<nav class="nav">
+				<h2 class="nav__title">Summary</h2>
+				<ol class="nav__list">
+					<li class="nav__listItem">
+						<a href="#ex1"
+							>Display VS Visibility to hide elements</a
+						>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex2">Impact of inline for li elements</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex3">The effect of box-sizing</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex4">The position property</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex5">Float element (img, etc.) with text</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex6">The power of media queries</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex7">The power of inline-block</a>
+					</li>
+					<li class="nav__listItem">
+						<a href="#ex8"> The column property </a>
+					</li>
+				</ol>
+			</nav>
+		</header>
+		<section id="ex1" class="ex1">
+			<h2>Display VS Visibility to hide elements</h2>
+			<div class="ex1__block ex1__block--hide1">First</div>
+			<div class="ex1__block ex1__block--hide2">Second</div>
+			<div class="ex1__block">
+				Third<br />
+				First div => display: none<br />
+				Second div => visibility: hidden
+			</div>
+		</section>
+		<section id="ex2" class="ex2">
+			<h2>Impact of inline for li elements</h2>
+			<p>Default display => vertical</p>
+			<ul class="ex2__list">
+				<li class="ex2__listItem">Home</li>
+				<li class="ex2__listItem">About us</li>
+				<li class="ex2__listItem">Contact</li>
+			</ul>
+			<p>Inline display => horizontal</p>
+			<ul class="ex2__list">
+				<li class="ex2__listItem ex2__listItem--inline">Home</li>
+				<li class="ex2__listItem ex2__listItem--inline">About us</li>
+				<li class="ex2__listItem ex2__listItem--inline">Contact</li>
+			</ul>
+		</section>
+		<section id="ex3" class="ex3">
+			<h2>The effect of box-sizing</h2>
+			<div class="ex3__block">Simple model</div>
+			<div class="ex3__block ex3__block--fancy">Fancy model</div>
+			<div class="ex3__block ex3__block--fancy ex3__block--border-box">
+				Fancy model with box-sizing
+			</div>
+		</section>
+		<section id="ex4" class="ex4">
+			<h2>The position property</h2>
+			<div class="ex4__block ex4__block--unflex ex4__block--margined">
+				<div class="ex4__block ex4__block--relative1">
+					The div block is relative to its parent
+				</div>
+			</div>
+			<div class="ex4__block ex4__block--relative1">
+				The div block is relative to its parent<br />
+				but behaves with its neighbours
+			</div>
+			<div class="ex4__block ex4__block--fixed">
+				Don't bother about<br />
+				this element<br />
+				The div block is<br />
+				fixed on the web page
+			</div>
+			<div class="ex4__block ex4__block--margined">
+				<div class="ex4__block ex4__block--absolute">
+					The div block is positioned absolute but<br />
+					outside of its parent which is static
+				</div>
+			</div>
+			<div class="ex4__block ex4__block--margined ex4__block--relative2">
+				<div class="ex4__block ex4__block--absolute">
+					The div block is positioned absolute<br />
+					inside of its parent which is relative
+				</div>
+			</div>
+		</section>
+		<section id="ex5" class="ex5">
+			<h2>Float element (img, etc.) with text</h2>
+			<p>Span floating on the right</p>
+			<span class="ex5__float"></span>
+			<p class="ex5__text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+				egestas odio, vitae scelerisque enim ligula venenatis dolor.
+				Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
+				Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula,
+				facilisis sed ornare eu, lobortis in odio. Praesent convallis
+				urna a lacus interdum ut hendrerit risus congue. Nunc sagittis
+				dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero
+				sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui
+				eget tellus gravida venenatis. Integer fringilla congue eros non
+				fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo
+				purus. Mauris quis diam velit.
+			</p>
+			<p>Span floating on the right but p cleared</p>
+			<span class="ex5__float"></span>
+			<p class="ex5__text ex5__text--afterFLoat">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+				egestas odio, vitae scelerisque enim ligula venenatis dolor.
+				Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
+				Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula,
+				facilisis sed ornare eu, lobortis in odio. Praesent convallis
+				urna a lacus interdum ut hendrerit risus congue. Nunc sagittis
+				dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero
+				sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui
+				eget tellus gravida venenatis. Integer fringilla congue eros non
+				fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo
+				purus. Mauris quis diam velit.
+			</p>
+			<p>Overflow when floating problem</p>
+			<div class="ex5__block">
+				<span class="ex5__float"></span>
+				<p class="ex5__text">In this case there is no overflow...</p>
+			</div>
+			<div class="ex5__block ex5__block--overflow">
+				<span class="ex5__float"></span>
+				<p class="ex5__text">In this one there is an auto overflow!</p>
+			</div>
+		</section>
+		<section id="ex6" class="ex6">
+			<h2>The power of media queries</h2>
+			<nav class="ex6__nav">
+				<ul>
+					<li>Home</li>
+					<li>About us</li>
+					<li>Contact</li>
+				</ul>
+			</nav>
+			<div class="ex6__block">First</div>
+			<div class="ex6__block">Second</div>
+		</section>
+		<section id="ex7" class="ex7">
+			<h2 class="ex7__title">The power of inline-block</h2>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+			<div class="ex7__block"></div>
+		</section>
+		<section id="ex8" class="ex8">
+			<h2>The column property</h2>
+			<div class="ex8__block">
+				<p class="ex8__text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+					egestas odio, vitae scelerisque enim ligula venenatis dolor.
+					Maecenas nisl est, ultrices nec congue eget, auctor vitae
+					massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante
+					ligula, facilisis sed ornare eu, lobortis in odio. Praesent
+					convallis urna a lacus interdum ut hendrerit risus congue.
+					Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim
+					ac. In at libero sed nunc venenatis imperdiet sed ornare
+					turpis. Donec vitae dui eget tellus gravida venenatis.
+					Integer fringilla congue eros non fermentum. Sed dapibus
+					pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis
+					diam velit.
+				</p>
+			</div>
+			<div class="ex8__block ex8__block--column">
+				<p class="ex8__text">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Phasellus imperdiet, nulla et dictum interdum, nisi lorem
+					egestas odio, vitae scelerisque enim ligula venenatis dolor.
+					Maecenas nisl est, ultrices nec congue eget, auctor vitae
+					massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante
+					ligula, facilisis sed ornare eu, lobortis in odio. Praesent
+					convallis urna a lacus interdum ut hendrerit risus congue.
+					Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim
+					ac. In at libero sed nunc venenatis imperdiet sed ornare
+					turpis. Donec vitae dui eget tellus gravida venenatis.
+					Integer fringilla congue eros non fermentum. Sed dapibus
+					pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis
+					diam velit.
+				</p>
+			</div>
+		</section>
+	</body>
+</html>
